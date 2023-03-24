@@ -1,0 +1,16 @@
+.deleteSpan {
+    margin-left: 15px;
+    font-weight: 700;
+    color: rgb(163, 23, 23);
+}
+
+.todolist {
+    margin-left: 15px;
+    font-size: 25px;
+}
+
+.inputTwo {
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 250px;
+}
