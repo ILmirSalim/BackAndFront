@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 
-export function useUpdateItem(url, method, title, titleTwo) {
+export function useUpdateItem(url, method, titleTwo) {
 
-    const updateItem = useCallback(async () => {
+    const updateItem = useCallback(async (id) => {
         try {
             const res = await fetch(url, {
                 method: method,
@@ -11,7 +11,7 @@ export function useUpdateItem(url, method, title, titleTwo) {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    title,
+                    id,
                     titleTwo
                 })
             })
@@ -25,7 +25,7 @@ export function useUpdateItem(url, method, title, titleTwo) {
         } catch (error) {
             console.log(error.message);
         }
-    }, [url, method, title, titleTwo]);
+    }, [url, method, titleTwo]);
 
     return updateItem;
 }

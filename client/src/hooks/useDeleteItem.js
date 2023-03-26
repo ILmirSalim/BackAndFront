@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 export function useDeleteItem(url, method) {
 
-    const deleteItem = useCallback(async (title) => {
+    const deleteItem = useCallback(async (id) => {
         try {
             const res = await fetch(url, {
                 method: method,
@@ -11,7 +11,7 @@ export function useDeleteItem(url, method) {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    title
+                    id
                 })
             })
 

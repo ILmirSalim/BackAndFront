@@ -7,10 +7,15 @@
 .todolist {
     margin-left: 15px;
     font-size: 25px;
+    display: flex;
 }
 
 .inputTwo {
     margin-top: 20px;
     margin-right: 20px;
     width: 250px;
+}
+
+.itemTitle {
+    font-style: italic;
 }

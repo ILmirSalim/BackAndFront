@@ -2,11 +2,11 @@ import './style.css'
 import { useDeleteItem } from '../../hooks/useDeleteItem'
 
 export const TodoList = ({ todoList, updateTodoList, selectTitle }) => {
-    
+
     const deleteItem = useDeleteItem('http://localhost:3002/api/todos/delete', 'delete');
-    const deleteTodoItem = (title) => {
-        deleteItem(title)
-        updateTodoList()
+    const deleteTodoItem = (id) => {
+        deleteItem(id)
+        setTimeout(() => updateTodoList(), 100)
     }
 
     return <>
@@ -15,12 +15,11 @@ export const TodoList = ({ todoList, updateTodoList, selectTitle }) => {
         }
         {
             todoList.map((item) => <div className='todolist' key={item._id}>
-                <span onClick={()=>selectTitle(item)}>
+                <span className='itemTitle' onClick={() => selectTitle(item)}>
                     {item.title}
                 </span>
-                <span className="deleteSpan" onClick={()=>deleteTodoItem(item.title)}>Удалить</span>
-                <span className="deleteSpan">Удалить два</span>
-                </div>)
+                <span className="deleteSpan" onClick={() => deleteTodoItem(item._id)}>Удалить</span>
+            </div>)
         }
     </>
 }

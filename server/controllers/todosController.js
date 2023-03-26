@@ -29,14 +29,14 @@ class TodosController {
 
     async deleteTodo(req, res) {
         try {
-            if (!req.body.title) {
-                res.status(400).json({ message: 'Пожалуйста укажите заголовок' })
+            if (!req.body.id) {
+                res.status(400).json({ message: 'Пожалуйста укажите id заголовка' })
             }
 
-            const { deletedCount } = await TodosModel.deleteOne({ title: req.body.title })
+            const { deletedCount } = await TodosModel.findByIdAndDelete({ _id: req.body.id })
 
             if (deletedCount === 0) {
-                res.status(400).json({ massege: 'Удаление не произошло, пожалуйста проверьте заголовок' })
+                res.status(400).json({ massege: 'Удаление не произошло, пожалуйста проверьте id заголовка' })
             }
 
             res.status(200).json({ message: 'Элемент успешно удален' })
@@ -48,16 +48,12 @@ class TodosController {
 
     async updateTodo(req, res) {
         try {
-            if (!req.body.title) {
-                res.status(400).json({ message: 'Пожалуйста укажите заголовок' })
+            if (!req.body.id) {
+                res.status(400).json({ message: 'Пожалуйста укажите id заголовка' })
             }
 
-            const user = await TodosModel.findOneAndUpdate({title: req.body.title}, {title: req.body.titleTwo}, {new: true});
+            const updateItem = await TodosModel.findByIdAndUpdate({_id: req.body.id}, {title: req.body.titleTwo}, {new: true});
             
-            // if (deletedCount === 0) {
-            //     res.status(400).json({ massege: 'Удаление не произошло, пожалуйста проверьте заголовок' })
-            // }
-
             res.status(200).json({ message: 'Элемент успешно изменен' })
             
         } catch (error) {
