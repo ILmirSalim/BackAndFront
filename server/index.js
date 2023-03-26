@@ -12,7 +12,6 @@ app.use(cors())
 app.use(express.json())
 app.use('/api/todos', todosRoutes)
 
-
 const PORT = process.env.PORT || 3001
 
 const start = async() => {

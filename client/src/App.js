@@ -24,16 +24,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Мои задачи</h1>
+      <h1>Мои задачи:</h1>
       <TodoList todoList={todoList}
         updateTodoList={updateTodoList}
         selectTitle={selectTitle}
       />
       <br />
-      <AddTodoItem 
-      updateTodoList={updateTodoList} 
-      selectedTitle={selectedTitle}
-       />
+      <AddTodoItem
+        updateTodoList={updateTodoList}
+        selectedTitle={selectedTitle}
+      />
     </div>
   );
 }
