@@ -11,14 +11,14 @@ export const AddTodoItem = ({ updateTodoList, selectedTitle }) => {
     const addItem = useAddItem('http://localhost:3002/api/todos/add', 'POST', title);
     const updateItem = useUpdateItem('http://localhost:3002/api/todos/update', "put", titleTwo)
 
-    const updateTitle = (id) => {
-        updateItem(id)
-        setTimeout(() => updateTodoList(), 100)
+    const updateTitle = async (id) => {
+        await updateItem(id)
+        updateTodoList()
     }
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault()
-        addItem()
+        await addItem()
         setTimeout(() => updateTodoList(), 100)
     }
 
