@@ -19,7 +19,7 @@ export const AddTodoItem = ({ updateTodoList, selectedTitle }) => {
     const onSubmit = async (e) => {
         e.preventDefault()
         await addItem()
-        setTimeout(() => updateTodoList(), 100)
+        updateTodoList()
     }
 
     useEffect(() => {
