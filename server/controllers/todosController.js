@@ -52,7 +52,7 @@ class TodosController {
                 res.status(400).json({ message: 'Пожалуйста укажите id заголовка' })
             }
 
-            const updateItem = await TodosModel.findByIdAndUpdate({_id: req.body.id}, {title: req.body.titleTwo}, {new: true});
+            await TodosModel.findByIdAndUpdate({_id: req.body.id}, {title: req.body.titleTwo}, {new: true});
             
             res.status(200).json({ message: 'Элемент успешно изменен' })
             
