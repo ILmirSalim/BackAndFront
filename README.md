@@ -2,6 +2,8 @@
 
 The first project with a backend
 
+Ability to add, delete, update tasks
+
 Project using SPA
 
 Custom hooks have been created for adding, deleting, and editing tasks.
